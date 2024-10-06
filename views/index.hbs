@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Home</title>
+</head>
+
+<body>
+    {{>menu}}
+
+    <h1 id="h1" data-user="{{userId}}">chat</h1>
+    
+    <div class="container">
+        <h1>Home</h1>
+        <table class="table table-success table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>See</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if users}}
+                {{#each users}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td><a href="/chat/{{this.id}}">See</a></td>
+                </tr>
+                {{/each}}
+                {{else}}
+                <tr>
+                    <td colspan="2">No users found.</td>
+                </tr>
+                {{/if}}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
